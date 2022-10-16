@@ -1,16 +1,22 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import colors from './src/theme/colors';
-import fonts from './src/theme/fonts';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import {StyleSheet} from 'react-native';
+
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import HomeScreen from './src/screens/HomeScreen';
 
 const App = () => {
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-      <Text style={{color: colors.primary, fontSize: fonts.size.xlg}}>App</Text>
-      <AntDesign name="stepforward" size={25} />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <HomeScreen />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 export default App;
